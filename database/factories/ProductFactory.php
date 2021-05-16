@@ -20,11 +20,13 @@ class ProductFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   
         $title=$this->faker->text(rand(35,45));
         return [
             'name' => $title,
+            'price'=>rand(5000,15000),
             'slug' => Str::slug($title, '-'),
+            'sku'=> Str::random(8),
             'description' => $this->faker->paragraph,
             'category_id'=>\App\Models\Category::all()->random()->id
         ];

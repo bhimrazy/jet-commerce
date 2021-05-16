@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
      * @return array
      */
     public function definition()
-    {   
+    {    
         $title=$this->faker->text(rand(15,25));
         return [
             'title' => $title,

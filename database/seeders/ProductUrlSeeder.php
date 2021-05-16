@@ -1,10 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Product;
+
 use Illuminate\Database\Seeder;
 
-class ProductSeeder extends Seeder
+class ProductUrlSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,10 +13,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()
-        ->count(10)
-        ->hasImages(4)
-        // ->forCategory()
-        ->create();
+        //
     }
 }

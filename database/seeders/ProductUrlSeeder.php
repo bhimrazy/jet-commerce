@@ -17,7 +17,7 @@ class ProductUrlSeeder extends Seeder
     {
         // $allProducts=[];
         $allProductGroups=[];
-        $cats=\App\Models\Category::all()->pluck('slug')->take(10);
+        $cats=\App\Models\Category::all()->pluck('slug')->take(20);
         foreach($cats as $cat){
             $products = Http::get('https://www.gyapu.com/api/product/productbycategory/'.$cat); 
             array_push($allProductGroups,$products['data']??null);
@@ -28,7 +28,7 @@ class ProductUrlSeeder extends Seeder
                 $product=[];
                 $images=[];
                 $product['name']=$p['name'];
-                $product['sku']=$p['sku_from_system']??$p['sku_of_seller'];
+                $product['sku']=$p['sku_from_system']??$p['sku_of_seller'].Str::random(5);
                 $product['slug']=Str::slug($p['name']);
                 $product['price']=$p['max_sales_price'];
                 $product['description']=$p['description'];
@@ -49,9 +49,10 @@ class ProductUrlSeeder extends Seeder
                     $category=\App\Models\Category::where("slug",Str::slug($p['category']['title']))->first();
                     $product['category_id']= $category != null?$category->id:4;
                 }
-                $pdt=\App\Models\Product::create($product);
-                $pdt->images()->createMany($images);
-               
+                if(\App\Models\Product::where("slug",Str::slug($p['name']))->first() == null){
+                    $pdt=\App\Models\Product::create($product);
+                    $pdt->images()->createMany($images);
+                }
                 $product['image']=$images;
                 // array_push($allProducts,$product);
             }

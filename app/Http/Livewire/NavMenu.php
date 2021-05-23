@@ -17,11 +17,11 @@ class NavMenu extends Component
         ],
         [
             "name"=>"Products",
-            "path"=>"product"  
+            "path"=>"products"  
         ],
         [
             "name"=>"Categories",
-            "path"=>"category"  
+            "path"=>"categories"  
         ],
         [
             "name"=>"Activity",

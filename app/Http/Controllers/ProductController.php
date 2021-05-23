@@ -56,7 +56,7 @@ class ProductController extends Controller
         //     }
         // }
         $products=Product::with('images')->get();
-        return $products;
+        return view('dashboard');
 
     }
 

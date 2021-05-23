@@ -15,8 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories=Category::with('image','subcategory','subcategory.image','subcategory.subcategory','subcategory.subcategory.image')->where('parent_id',null)->get();     
-    return $categories;                                                                                                                            
-       // return view('welcome');
+                                                                                                                           
+        return view('dashboard');
     }
 
     /**

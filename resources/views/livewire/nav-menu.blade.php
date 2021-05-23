@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($menus as $menu)
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs($menu['path'])">
+                    <x-jet-nav-link href="{{ $menu['path']}}" :active="request()->is('admin/'.$menu['path'])">
                         {{ __($menu["name"]) }}
                     </x-jet-nav-link>
                     @endforeach

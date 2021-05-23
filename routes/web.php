@@ -17,11 +17,16 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified']], function () {
+     // Dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+     // Category
+    Route::resource('categories', CategoryController::class);
+     // Product
+    Route::resource('products', ProductController::class);
+    
+});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
+require_once __DIR__. '/jetstream.php';

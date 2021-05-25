@@ -55,8 +55,8 @@ class ProductController extends Controller
         //         array_push($allProducts,$product);
         //     }
         // }
-        $products=Product::with('images')->get();
-        return view('dashboard');
+        // $products=Product::with('images')->take(10);
+        return view('admin.products.index')->with('products',Product::with('images')->latest()->get());
 
     }
 

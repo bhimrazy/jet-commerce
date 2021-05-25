@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified']]
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::redirect('/', '/admin/dashboard');
      // Category
     Route::resource('categories', CategoryController::class);
      // Product

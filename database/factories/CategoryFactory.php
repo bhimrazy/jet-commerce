@@ -22,10 +22,10 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {    
-        $title=$this->faker->text(rand(15,25));
+        $name=$this->faker->text(rand(15,25));
         return [
-            'title' => $title,
-            'slug' => Str::slug($title, '-')
+            'name' => $name,
+            'slug' => Str::slug($name, '-')
         ];
     }
 }

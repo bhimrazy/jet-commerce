@@ -28,7 +28,7 @@ class ProductUrlSeeder extends Seeder
                 $product=[];
                 $images=[];
                 $product['name']=$p['name'];
-                $product['sku']=$p['sku_from_system']??$p['sku_of_seller'].Str::random(5);
+                $product['SKU']=$p['sku_from_system']??$p['sku_of_seller'].Str::random(5);
                 $product['slug']=Str::slug($p['name']);
                 $product['price']=$p['max_sales_price'];
                 $product['description']=$p['description'];

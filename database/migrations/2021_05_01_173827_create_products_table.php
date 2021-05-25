@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->decimal('price');
             $table->string('slug')->unique();
-            $table->string('sku')->unique();
+            $table->string('SKU')->unique();
             $table->text('description');
             $table->boolean('active')->default(0);
             $table->foreignId('category_id')->constrained();

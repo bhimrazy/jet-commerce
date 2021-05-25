@@ -20,7 +20,7 @@ class CategoryUrlSeeder extends Seeder
             collect($res)->each(function($item, $key)use($cat){
                 if($cat == null){
                     $category=Category::create([
-                    'title' => $item['title'],
+                    'name' => $item['title'],
                     'slug' => Str::slug($item['title'], '-')
                     ]);
                     if(array_key_exists('image',$item)){
@@ -36,7 +36,7 @@ class CategoryUrlSeeder extends Seeder
                     $cats=Category::where('slug',Str::slug($item['title'], '-'))->first();
                     if($cats==null && $cat !=null){
                         $category=$cat->subcategory()->create([
-                            'title' => $item['title'],
+                            'name' => $item['title'],
                             'slug' => Str::slug($item['title'], '-')
                         ]);
                         if(array_key_exists('image',$item)){

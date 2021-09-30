@@ -1,3 +1,3 @@
 # TODO
-[] Creata Schemas
-[] Create Seeders
+- [x] Creata Schemas
+- [x] Create Seeders
